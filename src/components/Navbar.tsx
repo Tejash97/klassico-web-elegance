@@ -26,7 +26,6 @@ const Navbar = () => {
     { name: "Home", href: "/" },
     { name: "Men", href: "/category/men" },
     { name: "Women", href: "/category/women" },
-    { name: "Court Wear", href: "/category/court-wear" },
     { name: "About", href: "/about" },
     { name: "Contact", href: "/contact" },
   ];
@@ -68,16 +67,18 @@ const Navbar = () => {
           >
             <Search className="h-5 w-5" />
           </Button>
-          <Button
-            variant="ghost"
-            size="icon"
-            className="hover:bg-transparent hover:text-klassico-gold transition-colors"
-          >
-            <ShoppingBag className="h-5 w-5" />
-            <span className="absolute -top-1 -right-1 bg-klassico-gold text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
-              0
-            </span>
-          </Button>
+          <Link to="/cart">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="hover:bg-transparent hover:text-klassico-gold transition-colors relative"
+            >
+              <ShoppingBag className="h-5 w-5" />
+              <span className="absolute -top-1 -right-1 bg-klassico-gold text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
+                0
+              </span>
+            </Button>
+          </Link>
         </div>
 
         {/* Mobile Menu Button */}
@@ -137,16 +138,18 @@ const Navbar = () => {
                 >
                   <Search className="h-5 w-5" />
                 </Button>
-                <Button
-                  variant="ghost"
-                  size="icon"
-                  className="hover:bg-transparent"
-                >
-                  <ShoppingBag className="h-5 w-5" />
-                  <span className="absolute -top-1 -right-1 bg-klassico-gold text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
-                    0
-                  </span>
-                </Button>
+                <Link to="/cart" onClick={() => setIsOpen(false)}>
+                  <Button
+                    variant="ghost"
+                    size="icon"
+                    className="hover:bg-transparent relative"
+                  >
+                    <ShoppingBag className="h-5 w-5" />
+                    <span className="absolute -top-1 -right-1 bg-klassico-gold text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
+                      0
+                    </span>
+                  </Button>
+                </Link>
               </div>
             </nav>
           </div>

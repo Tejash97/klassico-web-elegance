@@ -28,12 +28,6 @@ const categories = [
     image: "https://images.unsplash.com/photo-1598808503746-f34cffc2073b?q=80&w=1974",
     link: "/category/blazers",
   },
-  {
-    id: 5,
-    name: "Court Wear",
-    image: "https://images.unsplash.com/photo-1589391886645-d51941baf7fb?q=80&w=1974",
-    link: "/category/court-wear",
-  },
 ];
 
 const CategorySection = () => {
@@ -70,7 +64,7 @@ const CategorySection = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {categories.map((category, index) => (
             <div
               key={category.id}
