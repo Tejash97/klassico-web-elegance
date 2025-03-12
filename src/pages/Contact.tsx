@@ -75,7 +75,7 @@ const Contact = () => {
   const onSubmit = async (values: z.infer<typeof formSchema>) => {
     setIsSubmitting(true);
     try {
-      const { error } = await supabase.from('inquiries').insert({
+      const { error } = await supabase.from('contact_inquiries').insert({
         name: values.name,
         email: values.email,
         phone: values.phone,
