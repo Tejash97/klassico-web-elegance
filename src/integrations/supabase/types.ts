@@ -9,7 +9,113 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      [_ in never]: never
+      categories: {
+        Row: {
+          description: string | null
+          id: string
+          image_url: string | null
+          name: string
+          slug: string
+        }
+        Insert: {
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          name: string
+          slug: string
+        }
+        Update: {
+          description?: string | null
+          id?: string
+          image_url?: string | null
+          name?: string
+          slug?: string
+        }
+        Relationships: []
+      }
+      contact_inquiries: {
+        Row: {
+          created_at: string | null
+          email: string
+          id: string
+          message: string
+          name: string
+          phone: string | null
+          product_interest: string | null
+        }
+        Insert: {
+          created_at?: string | null
+          email: string
+          id?: string
+          message: string
+          name: string
+          phone?: string | null
+          product_interest?: string | null
+        }
+        Update: {
+          created_at?: string | null
+          email?: string
+          id?: string
+          message?: string
+          name?: string
+          phone?: string | null
+          product_interest?: string | null
+        }
+        Relationships: []
+      }
+      products: {
+        Row: {
+          additional_images: string[] | null
+          available: boolean
+          category_id: string
+          created_at: string | null
+          description: string
+          id: string
+          image_url: string
+          name: string
+          price: number
+          sizes: string[] | null
+          slug: string
+          updated_at: string | null
+        }
+        Insert: {
+          additional_images?: string[] | null
+          available?: boolean
+          category_id: string
+          created_at?: string | null
+          description: string
+          id?: string
+          image_url: string
+          name: string
+          price: number
+          sizes?: string[] | null
+          slug: string
+          updated_at?: string | null
+        }
+        Update: {
+          additional_images?: string[] | null
+          available?: boolean
+          category_id?: string
+          created_at?: string | null
+          description?: string
+          id?: string
+          image_url?: string
+          name?: string
+          price?: number
+          sizes?: string[] | null
+          slug?: string
+          updated_at?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "products_category_id_fkey"
+            columns: ["category_id"]
+            isOneToOne: false
+            referencedRelation: "categories"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
